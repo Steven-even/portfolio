@@ -1,0 +1,133 @@
+:root{
+    --primary-color: #2d2c2c;
+    --secondary-color: rgb(46, 73, 95);
+    --font-color: #d7d7d7;
+    --background-color: #222222;
+}
+
+
+html{
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-style: normal;
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+header{
+    background-color: transparent;
+    width: 100%;
+    padding: 1rem;
+	font-family: 'YWFTRegistraat-RegularPlainDemo';
+    align-items: center;
+    text-align: center;
+    
+    
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+}
+@keyframes float {
+    0%   { transform: translateY(0); }
+    50%  { transform: translateY(6px); }
+    100% { transform: translateY(0); }
+  }
+
+#arrow{
+    position: fixed;
+    top: 11vh;
+    right: 8vw;
+    border: solid 1px white;
+    padding: 1rem 1rem;
+    color: var(--font-color);
+    weight: 700;
+    fill: 0;
+    background: transparent;
+    border-radius: 20px;
+    animation: float 2.5s ease-in-out infinite;
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+#arrow:hover{
+    background-color: var(--font-color);
+    color: transparent;
+    transition: 0.3s ease;
+    
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    text-align: center;
+}
+
+nav a {
+    color: var(--font-color);
+    text-decoration: none;
+    font-family: 'IsidoraSoft-Light';
+    font-weight: 500;
+    font-size: 2rem;
+    padding-right: .5em;
+    opacity: 0.8;
+    transition: .3s ease;
+    text-align: center;
+    
+}
+
+nav a:hover {
+    color: transparent;
+    -webkit-text-stroke: .5px var(--font-color);
+    font-size: 2.5em;
+    font-weight: 300;
+}
+
+section {
+    min-height: 100vh;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+
+
+.project {
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    padding: 1rem;
+}
+
+/** Main text on home page **/
+#home h1 {
+    width: 80%;
+    margin:auto;
+    font-size: 8rem;
+    color: var(--font-color);
+    font-family: 'YWFTRegistraat-RegularPlainDemo';
+    font-weight: 500;
+    margin-top: 10vh;
+    margin-bottom: 1rem;
+    font-weight: normal;
+	font-style: normal;
+}
