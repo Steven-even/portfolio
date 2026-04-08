@@ -5,6 +5,12 @@
     --background-color: #222222;
 }
 
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 
 html{
     margin: 0;
@@ -131,3 +137,75 @@ section {
     font-weight: normal;
 	font-style: normal;
 }
+
+
+/** sliding blocks **/
+
+#sliding-blocks {
+    border: solid 1px var(--font-color);
+    position: relative;
+    width: 90%;
+    max-width: 1700px;
+    height: 175px;
+    margin-inline: auto;
+    margin-top: 5rem;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+}
+
+.img1, .img2{
+    height: 175px;
+    width: 200px;
+    padding: 3rem;
+    position: absolute;
+    left: max(calc(200px * 8), 100%); 
+    animation-name: scrollLeft;
+    animation-duration: 15s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-delay: -15s;
+}
+
+.img1{
+    border: solid 2px var(--font-color);
+    border-radius: 2px;
+
+}
+.img2{
+    border: solid 2px var(--font-color);
+    border-radius: 80px;
+
+}
+
+@keyframes scrollLeft{
+    to{
+        left: -200px;
+    }
+}
+
+.slide1{
+    animation-delay: calc(15s / 8 * (8 - 1) * -1);
+}
+.slide2{
+    animation-delay:calc(15s / 8 * (8 - 2) * -1);
+}
+.slide3{
+    animation-delay:calc(15s / 8 * (8 - 3) * -1);
+}
+.slide4{
+    animation-delay:calc(15s / 8 * (8 - 4) * -1);
+}
+.slide5{
+    animation-delay:calc(15s / 8 * (8 - 5) * -1);
+}
+.slide6{
+    animation-delay:calc(15s / 8 * (8 - 6) * -1);
+}
+.slide7{
+    animation-delay:calc(15s / 8 * (8 - 7) * -1);
+}
+.slide8{
+    animation-delay:calc(15s / 8 * (8 - 8) * -1);
+}
+/** End of Scroll Animation **/
