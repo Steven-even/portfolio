@@ -11,6 +11,73 @@
     box-sizing: border-box;
 }
 
+/**** header shrink on scroll ****/
+
+/* HEADER BASE */
+#mainHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100px;
+  background: #1c5775;
+  transition: height 0.3s ease;
+  overflow: hidden;
+  z-index: 1000;
+}
+
+/* SHRUNK STATE */
+#mainHeader.shrink {
+  height: 50px;
+}
+
+/* ONLY expand when hovered AND shrunk */
+#mainHeader.shrink:hover {
+  height: 100px;
+}
+
+/* NAV LAYOUT */
+.header-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: height 0.3s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+/* LINKS */
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+
+  /* hidden by default */
+  opacity: 0;
+  transform: translateY(-10px);
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition-delay: 0s;
+}
+
+/* TEXT APPEARS WITH DELAY ON HOVER */
+#mainHeader:hover nav a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+#mainHeader.shrink:hover nav a {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.2s;
+}
+
 /**Name hover Styling**/
 
 h1 span:hover {
@@ -27,9 +94,12 @@ h1 span:hover {
 
 .glow-on-hover {
     float: left;
-    width: 30vw;
+    width: auto;
+    display: flex;
+    padding: 1rem 2rem;
     height: 100%;
     margin:auto;
+    margin-left: 7vw;
     margin-top: 10vh;
     margin-bottom: 1rem;
     border: none;
@@ -44,7 +114,7 @@ h1 span:hover {
 
 .glow-on-hover:before {
     content: '';
-    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    background: linear-gradient(45deg, #ffffff, #838383, #d8d8d8, #ffffff, #838383, #d8d8d8,#ffffff, #838383, #d8d8d8);
     position: absolute;
     top: -2px;
     left:-2px;
@@ -75,8 +145,11 @@ h1 span:hover {
     z-index: -1;
     content: '';
     position: absolute;
-    width: 30vw;
+    display: flex;
+    padding: 1rem 2rem;
     height: 100%;
+    width: 100%;
+    margin:auto;
     background: #111;
     left: 0;
     top: 0;
@@ -204,16 +277,18 @@ section {
 
 /** Main text on home page **/
 #home h1 {
-    width: 80%;
+    width: 100%;
     margin:auto;
-    margin-top: 10vh;
-    margin-bottom: 1rem;
+    margin: 2rem;
     font-size: 8rem;
     color: var(--font-color);
     font-family: 'YWFTRegistraat-RegularPlainDemo';
     font-weight: 500;
     font-weight: normal;
 	font-style: normal;
+    overflow:hidden;
+    position: relative;
+    flex-wrap: wrap;
 }
 
 
