@@ -3,7 +3,7 @@
     --secondary-color: rgb(46, 73, 95);
     --font-color: #d7d7d7;
     --background-color: #222222;
-    --accent-color: #505050;
+    --accent-color: #2a2a2a;
 }
 
 *,
@@ -16,15 +16,14 @@
 
 /* HEADER BASE */
 #mainHeader {
-
     position: fixed;
-    border-radius: 20px;
+    border-radius: 50px;
     margin: 0 auto;
     border: 2px solid var(--font-color);
     top: 25px;
     width: 90%;
     height: 100px;
-    background-color: rgba(28, 87, 117, 0.6);
+    background-color: rgba(214, 214, 214, 0.867);
     transition: height 0.3s ease;
     overflow: hidden;
     z-index: 1000;
@@ -37,21 +36,24 @@
 
 /* SHRUNK STATE */
 #mainHeader.shrink {
-
     height: 50px;
     transition: .3s ease;
-    background-color: rgba(28, 87, 117, 0);
-    width: 50%;
-    left: 25%;
+    background-color: rgba(214, 214, 214, 0.867);
+    width: 15%;
+    left: 42.5%;
+    background-image: url(/images/icons8-hamburger-menu-48.png);
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: 40px;
 }
 
 /* ONLY expand when hovered AND shrunk */
 #mainHeader.shrink:hover {
     height: 100px;
     transition: .3s ease;
-    background-color: rgba(28, 87, 117, 0.6);
     width: 50%;
     left: 25%;
+    background-image:none;
 }
 
 .textAppear {
@@ -81,16 +83,9 @@ nav ul {
 
 /* LINKS */
 nav a {
-    color: white;
     text-decoration: none;
     font-size: 18px;
-
-    /* hidden by default */
-    opacity: 0;
     transform: translateY(-10px);
-
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    transition-delay: 0s;
 }
 
 /* TEXT APPEARS WITH DELAY ON HOVER */
@@ -110,18 +105,39 @@ nav a {
 
 
 
+/** Main text on home page **/
+#home h1{
+    top: 0;
+    height: 100%;
+    font-size: 6rem;
+    color: var(--font-color);
+    font-family: 'YWFTRegistraat-RegularPlainDemo';
+    font-weight: 500;
+    font-weight: normal;
+    font-style: normal;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container3D{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+}
+
 /** glow around name border **/
 
-
 .glow-on-hover {
-    float: left;
-    width: auto;
+    left: 5%;
+    width: 90%;
+    height: auto;
     display: flex;
     padding: 1rem 2rem;
-    height: 100%;
-    margin: auto;
-    margin-left: 7vw;
-    margin-top: 10vh;
+    margin-top: 20vh;
     margin-bottom: 1rem;
     border: none;
     outline: none;
@@ -131,6 +147,10 @@ nav a {
     position: relative;
     z-index: 0;
     border-radius: 10px;
+    overflow: none;
+    justify-content: center;
+    text-align: center;
+
 }
 
 .glow-on-hover:before {
@@ -156,9 +176,6 @@ nav a {
 
 .glow-on-hover:active:after {
     background: transparent;
-}
-h1:active:after {
-    color: #111;
 }
 
 .glow-on-hover:hover:before {
@@ -236,6 +253,7 @@ body {
 }
 
 #arrow {
+    z-index: 999;
     position: fixed;
     top: 11vh;
     right: 8vw;
@@ -258,7 +276,7 @@ body {
 
 #arrow:hover {
     background-color: var(--font-color);
-    color: transparent;
+    color:var(--background-color);
     transition: 0.3s ease;
 
 }
@@ -273,13 +291,13 @@ nav ul {
 }
 
 nav a {
-    color: var(--font-color);
+    color: var(--background-color);
     text-decoration: none;
     font-family: 'IsidoraSoft-Light';
     font-weight: 500;
     font-size: 2rem;
     padding-right: .5em;
-    opacity: 0.8;
+    opacity: 1;
     transition: .3s ease;
     text-align: center;
 
@@ -287,8 +305,7 @@ nav a {
 
 nav a:hover {
     color: transparent;
-    -webkit-text-stroke: .5px var(--font-color);
-    font-size: 2.5em;
+    -webkit-text-stroke: 3px var(--background-color);
     font-weight: 300;
 }
 
@@ -306,27 +323,12 @@ section {
     padding: 1rem;
 }
 
-/** Main text on home page **/
-#home h1 {
-    width: 100%;
-    margin: auto;
-    margin: 2rem;
-    font-size: 12rem;
-    color: var(--font-color);
-    font-family: 'YWFTRegistraat-RegularPlainDemo';
-    font-weight: 500;
-    font-weight: normal;
-    font-style: normal;
-    overflow: hidden;
-    position: relative;
-    flex-wrap: wrap;
-}
+
 
 
 /** sliding blocks **/
 
 #sliding-blocks {
-    border: solid 1px var(--font-color);
     position: relative;
     width: 90%;
     max-width: 1700px;
@@ -374,22 +376,25 @@ section {
     flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
+    z-index: 1;
 }
 
 /* individual cards */
 #modalContent {
-    flex: 1 1 350px;
-    max-width: 350px;
+    flex: 1 1 400px;
+    max-width: 400px;
     background: #1e1e1e;
-    color: white;
+    color: var(--font-color);
     padding: 20px;
     border-radius: 15px;
-    border: solid 2px var(--font-color);
+    border: none;
+    background-color: var(--accent-color);
     display: flex;
     flex-direction: column;
-    align-items: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s ease;
+    box-sizing: border-box;
+    border: 2px solid transparent;
 }
 #modalContent h2{
     background-color: var(--accent-color);
@@ -402,20 +407,24 @@ section {
 }
 
 #modalContent:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); 
+    transition: .2s; 
+    border: 2px solid var(--font-color);
 }
 
 /* images */
-.modalContent img {
+img[alt="Star Icon"] {
     margin: 5px;
+    max-width: 25px;
+    width: 25px;
 }
 
-#javascriptEX {
-    width: 100%;
-    height: 300px;
-    margin-top: 10px;
-    border-radius: 10px;
+img[alt="codeLogo"] {
+    margin: 5px;
+    width: 96px;
 }
+
+
 
 
 @keyframes scrollLeft {

@@ -53,10 +53,10 @@ header.addEventListener("mouseleave", () => {
 
 
 
-
-
 //run this code when the DOM loads
 document.addEventListener('DOMContentLoaded', function (e) {
+
+
 
 
     //BACK TO TOP BUTTON
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
     window.addEventListener("scroll", () => {
         const currentScroll = window.scrollY;
 
-        if (currentScroll < 1100) {
+        if (currentScroll < 900) {
             // at top → always hidden
             btn.classList.add("hidden");
         } else {
