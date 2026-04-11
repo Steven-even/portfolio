@@ -14,82 +14,88 @@
     <script src="app.js" defer></script>
     <link rel="stylesheet" href="/css/webfonts/ywft-registraat-regular-plain-demo.css" type="text/css"
         charset="utf-8" />
-    <script src="3d.js" defer></script>
     <link rel="stylesheet" href="/css/webfonts/isidora-soft-light.css" type="text/css" charset="utf-8" />
     <title>WIP Portfolio</title>
 </head>
 
-<header id="mainHeader">
+<header id="mainHeader" class="onHover">
     <div class="header-container">
-        <nav>
-            <ul>
-                <li class="home"><a href="/index.html">Main</a></li>
-                <li class="about"><a href="/about/index.html">About</a></li>
-                <li class="projects"><a href="/projects/index.html">Projects</a></li>
-                <li class="contact"><a href="/contact/index.html">Contact</a></li>
-            </ul>
-        </nav>
+        
+            <nav>
+                <ul>
+                    <li class="home"><a href="/index.html">Main</a></li>
+                    <li class="about"><a href="/about/index.html">About</a></li>
+                    <li class="projects"><a href="/projects/index.html">Projects</a></li>
+                    <li class="contact"><a href="/contact/index.html">Contact</a></li>
+                </ul>
+            </nav>
+    </div>
 </header>
-
 <body>
-    <span id="arrow" class="material-symbols-outlined">
-        arrow_warm_up
-    </span>
-    <section id="home">
-        <div class="glow-on-hover">
-            <h1>STEVEN PEREZ</h1>
-            <div class="container3D">
+    <div class="b-screen gradient-anim">
+
+        <div class="buttonPlacement">
+            <div class="text-box">
+                <a href="#" class="btn btn-white btn-animate">Light</a>
+            </div>
+
+        </div>
+        <span id="arrow" class="material-symbols-outlined">
+            arrow_warm_up
+        </span>
+        <section id="home">
+            <div class="Name">
+                <h1>STEVEN PEREZ</h1>
+            </div>
+            <div id="game-section">
+                <!-- Placeholder for small game -->
+                <canvas id="game-canvas" width="400" height="300"></canvas>
+            </div>
+        </section>
+        <div id="modalContainer">
+            <div id="modalContent">
+                <img src="/images/icons8-html-96.png" alt="codeLogo"><BR>
+                <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+
+                <img src="/images/javascriptEX.PNG" id="javascriptEX">
+
+            </div>
+            <div id="modalContent">
+                <img src="/images/icons8-css-96.png" alt="codeLogo"><BR>
+                <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+
+                <img src="/images/javascriptEX.PNG" id="javascriptEX">
+
+            </div>
+            <div id="modalContent">
+                <img src="/images/icons8-javascript-96.png" alt="codeLogo"><BR>
+                <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+                <img src="/images/icons8-star-32.png" alt="Star Icon">
+
+                <img src="/images/javascriptEX.PNG" alt="javascriptEX">
+
             </div>
         </div>
-        <div id="game-section">
-            <!-- Placeholder for small game -->
-            <canvas id="game-canvas" width="400" height="300"></canvas>
+        <div id="sliding-blocks">
+            <img src="/images/wsu-logo.png" class="img1 slide1">
+            <img src="/images/wsu-logo.png" class="img2 slide2">
+            <img src="/images/wsu-logo.png" class="img1 slide3">
+            <img src="/images/wsu-logo.png" class="img2 slide4">
+            <img src="/images/wsu-logo.png" class="img1 slide5">
+            <img src="/images/wsu-logo.png" class="img2 slide6">
+            <img src="/images/wsu-logo.png" class="img1 slide7">
+            <img src="/images/wsu-logo.png" class="img2 slide8">
         </div>
-    </section>
-    <div id="modalContainer">
-        <div id="modalContent">
-            <img src="/images/icons8-html-96.png" alt="codeLogo"><BR>
-            <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
 
-            <img src="/images/javascriptEX.PNG" id="javascriptEX">
-
-        </div>
-        <div id="modalContent">
-            <img src="/images/icons8-css-96.png" alt="codeLogo"><BR>
-            <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-
-            <img src="/images/javascriptEX.PNG" id="javascriptEX">
-
-        </div>
-        <div id="modalContent">
-            <img src="/images/icons8-javascript-96.png" alt="codeLogo"><BR>
-            <p>Expierience:</p><img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-            <img src="/images/icons8-star-32.png" alt="Star Icon">
-
-            <img src="/images/javascriptEX.PNG" alt="javascriptEX">
-
-        </div>
     </div>
-    <div id="sliding-blocks">
-        <img src="/images/wsu-logo.png" class="img1 slide1">
-        <img src="/images/wsu-logo.png" class="img2 slide2">
-        <img src="/images/wsu-logo.png" class="img1 slide3">
-        <img src="/images/wsu-logo.png" class="img2 slide4">
-        <img src="/images/wsu-logo.png" class="img1 slide5">
-        <img src="/images/wsu-logo.png" class="img2 slide6">
-        <img src="/images/wsu-logo.png" class="img1 slide7">
-        <img src="/images/wsu-logo.png" class="img2 slide8">
-    </div>
-
-
 </body>
 
 </html>

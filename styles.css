@@ -1,9 +1,25 @@
 :root {
     --primary-color: #2d2c2c;
-    --secondary-color: rgb(46, 73, 95);
     --font-color: #d7d7d7;
     --background-color: #222222;
     --accent-color: #2a2a2a;
+    --second-primary: #ffffff32;
+    --headerText-color: #dddddd;
+    --b-gradient1: #444444;
+    --b-gradient2: #151515;
+    --pop-color: #181010;
+}
+
+:root.light {
+    --primary-color: #ffffff;
+    --font-color: #2d2d2d;
+    --background-color: #d3d3d3;
+    --accent-color: #ebebeb;
+    --second-primary: #00000051;
+    --headerText-color: #cdcdcd;
+    --b-gradient1: #797979;
+    --b-gradient2: #dbdbdb;
+    --pop-color: #101018;
 }
 
 *,
@@ -21,9 +37,8 @@
     margin: 0 auto;
     border: 2px solid var(--font-color);
     top: 25px;
-    width: 90%;
+    width: 60%;
     height: 100px;
-    background-color: rgba(214, 214, 214, 0.867);
     transition: height 0.3s ease;
     overflow: hidden;
     z-index: 1000;
@@ -31,8 +46,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 5%;
+    left: 20%;
+    background-color: var(--second-primary);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 /* SHRUNK STATE */
 #mainHeader.shrink {
@@ -42,7 +60,7 @@
     width: 15%;
     left: 42.5%;
     background-image: url(/images/icons8-hamburger-menu-48.png);
-    background-position:center;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: 40px;
 }
@@ -53,7 +71,7 @@
     transition: .3s ease;
     width: 50%;
     left: 25%;
-    background-image:none;
+    background-image: none;
 }
 
 .textAppear {
@@ -65,12 +83,18 @@
 }
 
 /* NAV LAYOUT */
+
+header {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 .header-container {
     height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: height 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 nav ul {
@@ -81,32 +105,95 @@ nav ul {
     margin: 0;
 }
 
-/* LINKS */
-nav a {
-    text-decoration: none;
-    font-size: 18px;
-    transform: translateY(-10px);
-}
+
 
 /* TEXT APPEARS WITH DELAY ON HOVER */
-#mainHeader:hover nav a {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
+
+
+
+/**Light switch button styling**/
+
+.buttonPlacement {
+    display: flex;
+    top: 55px;
+    width: -10%;
+    right: 94%;
+    position: absolute;
 }
 
-#mainHeader.shrink:hover nav a {
-    opacity: 1;
-    transform: translateY(0);
-    transition-delay: 0.2s;
+.btn {
+    font-family: 'YWFTRegistraat-RegularPlainDemo';
+    text-align: center;
+
 }
 
-/**Name hover Styling**/
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block;
+    border-radius: 100px;
+    transition: all .2s;
+    position: absolute;
+}
 
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
 
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: var(--font-color);
+    color: var(--accent-color);
+}
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after {
+    background-color: var(--font-color);
+}
+
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+.btn-animated {
+    animation: moveInBottom 5s ease-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
 
 /** Main text on home page **/
-#home h1{
+#home h1 {
     top: 0;
     height: 100%;
     font-size: 6rem;
@@ -120,18 +207,7 @@ nav a {
     justify-content: center;
 }
 
-.container3D{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-}
-
-/** glow around name border **/
-
-.glow-on-hover {
+.Name {
     left: 5%;
     width: 90%;
     height: auto;
@@ -142,7 +218,6 @@ nav a {
     border: none;
     outline: none;
     color: #fff;
-    background: #111;
     cursor: pointer;
     position: relative;
     z-index: 0;
@@ -150,65 +225,30 @@ nav a {
     overflow: none;
     justify-content: center;
     text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
 
 }
 
-.glow-on-hover:before {
-    content: '';
-    background: linear-gradient(45deg, #ffffff, #838383, #d8d8d8, #ffffff, #838383, #d8d8d8, #ffffff, #838383, #d8d8d8);
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    animation: glowing 20s linear infinite;
-    opacity: 0;
-    transition: opacity .3s ease-in-out;
-    border-radius: 10px;
+
+/**** gradient Background ***/
+
+.b-screen {
+    background: linear-gradient(270deg, var(--b-gradient2), var(--b-gradient1), var(--b-gradient2), var(--b-gradient1), var(--b-gradient2), var(--b-gradient1), var(--b-gradient2), var(--b-gradient1));
+    background-size: 800% 800%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
 }
 
-.glow-on-hover:active {
-    color: #000
+@-webkit-keyframes AnimationName {
+    0%{background-position:42% 0%}
+    50%{background-position:59% 100%}
+    100%{background-position:42% 0%}
 }
-
-.glow-on-hover:active:after {
-    background: transparent;
-}
-
-.glow-on-hover:hover:before {
-    opacity: 1;
-}
-
-.glow-on-hover:after {
-    z-index: -1;
-    content: '';
-    position: absolute;
-    display: flex;
-    padding: 1rem 2rem;
-    height: 100%;
-    width: 100%;
-    margin: auto;
-    background: #111;
-    left: 0;
-    top: 0;
-    border-radius: 10px;
-}
-
-@keyframes glowing {
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 400% 0;
-    }
-
-    100% {
-        background-position: 0 0;
-    }
+@keyframes AnimationName {
+    0%{background-position:42% 0%}
+    50%{background-position:59% 100%}
+    100%{background-position:42% 0%}
 }
 
 
@@ -224,7 +264,9 @@ body {
     margin: 0;
     padding: 0;
     background-color: var(--background-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 .header-container {
     max-width: 1200px;
@@ -257,7 +299,7 @@ body {
     position: fixed;
     top: 11vh;
     right: 8vw;
-    border: solid 1px white;
+    border: solid 2px white;
     padding: 1rem 1rem;
     color: var(--font-color);
     weight: 700;
@@ -267,6 +309,7 @@ body {
     animation: float 2.5s ease-in-out infinite;
     transition: opacity 0.5s ease, transform 0.3s ease;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .hidden {
@@ -276,7 +319,7 @@ body {
 
 #arrow:hover {
     background-color: var(--font-color);
-    color:var(--background-color);
+    color: var(--background-color);
     transition: 0.3s ease;
 
 }
@@ -291,22 +334,51 @@ nav ul {
 }
 
 nav a {
-    color: var(--background-color);
+    color: var(--headerText-color);
     text-decoration: none;
     font-family: 'IsidoraSoft-Light';
-    font-weight: 500;
-    font-size: 2rem;
+    font-weight: 600;
+    font-size:2rem;
     padding-right: .5em;
     opacity: 1;
-    transition: .3s ease;
+    transition: .2s ease;
     text-align: center;
-
 }
 
-nav a:hover {
-    color: transparent;
-    -webkit-text-stroke: 3px var(--background-color);
-    font-weight: 300;
+nav a:hover{
+    transform: scale(1.2);
+    transition: .2s;
+    
+}
+
+.onHover:before,
+.onHover:after{
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: -100%;
+  left: 0;
+  background: var(--pop-color);
+  z-index: -1;
+  transition: all .35s;
+}
+
+.onHover:before{
+  opacity: .5;
+}
+
+.onHover:after{
+  transition-delay: .2s;
+}
+
+.onHover:hover {
+    color: #fff;
+}
+
+.onHover:hover:before,
+.onHover:hover:after{
+  top: 0;
 }
 
 section {
@@ -369,7 +441,7 @@ section {
 
 /************************* Modal Cards ***************************/
 #modalContainer {
-    position: relative; 
+    position: relative;
     width: 100%;
     padding: 40px;
     display: flex;
@@ -391,14 +463,15 @@ section {
     background-color: var(--accent-color);
     display: flex;
     flex-direction: column;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: transform 0.4s ease;
     box-sizing: border-box;
     border: 2px solid transparent;
 }
-#modalContent h2{
+
+#modalContent h2 {
     background-color: var(--accent-color);
-    border-radius : 10px;
+    border-radius: 10px;
     padding: 10px;
     width: 100%;
     font-family: 'IsidoraSoft-Light';
@@ -407,8 +480,8 @@ section {
 }
 
 #modalContent:hover {
-    transform: translateY(-5px); 
-    transition: .2s; 
+    transform: translateY(-5px);
+    transition: .2s;
     border: 2px solid var(--font-color);
 }
 
@@ -416,6 +489,9 @@ section {
 img[alt="Star Icon"] {
     margin: 5px;
     max-width: 25px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     width: 25px;
 }
 

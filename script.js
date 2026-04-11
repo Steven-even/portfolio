@@ -51,6 +51,26 @@ header.addEventListener("mouseleave", () => {
     });
 });
 
+//switch to light mode toggle on and off
+
+let toggleBtn = document.querySelector(".btn");
+
+
+toggleBtn.addEventListener("click", (e)=>{
+    document.documentElement.classList.toggle('.light');
+    e.preventDefault();
+
+    const isLight = document.documentElement.classList.toggle('light');
+
+    if (isLight) {
+    toggleBtn.textContent = "Dark";
+    console.log("Light mode is on");
+  } else {
+    toggleBtn.textContent = "Light";
+    console.log("Light mode is off");
+  }
+});
+
 
 
 //run this code when the DOM loads
@@ -60,18 +80,20 @@ document.addEventListener('DOMContentLoaded', function (e) {
 
 
     //BACK TO TOP BUTTON
-    const btn = document.getElementById("arrow");
-    btn.classList.add("hidden");
+    const arrowBtn = document.getElementById("arrow");
+    arrowBtn.classList.add("hidden");
 
     window.addEventListener("scroll", () => {
         const currentScroll = window.scrollY;
 
         if (currentScroll < 900) {
             // at top → always hidden
-            btn.classList.add("hidden");
+            arrowBtn.classList.add("hidden");
+            arrowBtn.style.visibility = "visible";
+
         } else {
             // middle range → show
-            btn.classList.remove("hidden");
+            arrowBtn.classList.remove("hidden");
         }
     });
 });
