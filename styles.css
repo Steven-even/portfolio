@@ -3,7 +3,7 @@
     --font-color: #d7d7d7;
     --background-color: #222222;
     --accent-color: #2a2a2a;
-    --second-primary: #ffffff32;
+    --second-primary: #ffffff45;
     --headerText-color: #dddddd;
     --b-gradient1: #444444;
     --b-gradient2: #151515;
@@ -15,7 +15,7 @@
     --font-color: #2d2d2d;
     --background-color: #d3d3d3;
     --accent-color: #ebebeb;
-    --second-primary: #00000051;
+    --second-primary: #00000058;
     --headerText-color: #cdcdcd;
     --b-gradient1: #6c6c6c;
     --b-gradient2: #dbdbdb;
@@ -37,7 +37,7 @@
     margin: 0 auto;
     border: 2px solid var(--font-color);
     top: 25px;
-    width: 60%;
+    width: 55%;
     height: 100px;
     transition: height 0.3s ease;
     overflow: hidden;
@@ -46,7 +46,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    left: 20%;
+    left: 22.5%;
     background-color: var(--second-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -56,7 +56,7 @@
 #mainHeader.shrink {
     height: 50px;
     transition: .3s ease;
-    background-color: rgba(214, 214, 214, 0.867);
+    background-color: var(--second-primary);
     width: 15%;
     left: 42.5%;
     background-image: url(/images/icons8-hamburger-menu-48.png);
@@ -547,4 +547,37 @@ img[alt="codeLogo"] {
     #home h1 {
         font-size: 8rem;
     }
+}
+
+.todo {
+
+    transition: .5s ease;
+    transition-delay: .1s;
+
+
+}
+
+.todo.show{
+    scale: 1;
+    opacity: 1;
+    translate: 0;
+    transition-delay: .1s;
+    
+}
+
+.appear{   
+    translate: (300px);
+    opacity: 0;
+    transition: .9s ease;
+    transition-delay: .1s;
+    transform: translateY(-50%) rotateX(90deg);  
+    
+}
+
+.appear.now{
+    opacity: 1;
+    translate: 0;
+    transition: 2s ease;
+    transition-delay: .1s;
+    transform: translateY(0) rotateX(0deg);
 }

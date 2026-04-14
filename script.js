@@ -27,12 +27,12 @@ window.addEventListener("scroll", () => {
             text.classList.remove("textDisappear");
             text.classList.add("textAppear");
         });
-    } 
+    }
 });
 
 // HOVER ON HEADER
 header.addEventListener("mouseenter", () => {
-    if (window.scrollY <= 50) return; 
+    if (window.scrollY <= 50) return;
 
     header.classList.add("shrink");
 
@@ -43,7 +43,7 @@ header.addEventListener("mouseenter", () => {
 });
 
 header.addEventListener("mouseleave", () => {
-    if (window.scrollY <= 50) return; 
+    if (window.scrollY <= 50) return;
 
     headerTextHome.forEach(text => {
         text.classList.add("textDisappear");
@@ -56,21 +56,42 @@ header.addEventListener("mouseleave", () => {
 let toggleBtn = document.querySelector(".btn");
 
 
-toggleBtn.addEventListener("click", (e)=>{
+toggleBtn.addEventListener("click", (e) => {
     document.documentElement.classList.toggle('.light');
     e.preventDefault();
 
     const isLight = document.documentElement.classList.toggle('light');
 
     if (isLight) {
-    toggleBtn.textContent = "Dark";
-    console.log("Light mode is on");
-  } else {
-    toggleBtn.textContent = "Light";
-    console.log("Light mode is off");
-  }
+        toggleBtn.textContent = "Dark";
+        console.log("Light mode is on");
+    } else {
+        toggleBtn.textContent = "Light";
+        console.log("Light mode is off");
+    }
 });
 
+
+//Scroll animation with Intersection Observer
+let observer = new IntersectionObserver((entries) => {
+
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            console.log(entry.target)
+            entry.target.classList.add("show");
+            entry.target.classList.add("now");
+
+        }else{
+            entry.target.classList.remove("show");
+            entry.target.classList.remove("now");
+
+        }
+    })
+}, {})
+let todoElements = document.querySelectorAll(".todo")
+todoElements.forEach(el => observer.observe(el))
+let appearElements = document.querySelectorAll(".appear")
+appearElements.forEach(el => observer.observe(el))
 
 
 //run this code when the DOM loads
