@@ -105,6 +105,24 @@ nav ul {
     margin: 0;
 }
 
+/**** Nav side-bar****/
+
+.side-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+    background-color: var(--second-primary);
+    border-right: 2px solid var(--font-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    z-index: 999;
+}
+
 
 
 /* TEXT APPEARS WITH DELAY ON HOVER */
@@ -116,9 +134,9 @@ nav ul {
 .buttonPlacement {
     display: flex;
     top: 55px;
-    width: -10%;
-    right: 94%;
+    width: 100%;
     position: absolute;
+    justify-content: center;
 }
 
 .btn {
