@@ -1,88 +1,46 @@
 // ======================== SKILL DATA ========================
 const skillsData = {
-    react: {
-        title: 'React',
-        description: 'Advanced React development with hooks, context, and state management solutions.',
+    html: {
+        title: 'HTML',
+        description: 'Semantic HTML5 development with best practices for web standards and accessibility.',
         level: 'Expert',
-        experience: '5+ years',
-        emoji: '⚛️'
-    },
-    vue: {
-        title: 'Vue.js',
-        description: 'Proficient with Vue 3, composition API, and ecosystem tools.',
-        level: 'Advanced',
-        experience: '3+ years',
-        emoji: '💚'
-    },
-    typescript: {
-        title: 'TypeScript',
-        description: 'Strong type-safe development practices and advanced TypeScript patterns.',
-        level: 'Advanced',
-        experience: '3+ years',
-        emoji: '📘'
+        experience: 'Recent WSU Graduate',
+        emoji: '🏗️'
     },
     css: {
-        title: 'CSS & Animation',
-        description: 'Expert in CSS animations, GSAP, and creating fluid user experiences.',
+        title: 'CSS & Design',
+        description: 'Expert in modern CSS, animations, responsive design, and creative visual experiences.',
         level: 'Expert',
-        experience: '5+ years',
+        experience: 'Recent WSU Graduate',
         emoji: '🎨'
     },
-    nodejs: {
-        title: 'Node.js',
-        description: 'Full-stack Node.js development with Express, REST APIs, and real-time applications.',
-        level: 'Expert',
-        experience: '5+ years',
-        emoji: '🟢'
-    },
-    mongodb: {
-        title: 'MongoDB',
-        description: 'NoSQL database design, optimization, and aggregation pipelines.',
-        level: 'Advanced',
-        experience: '4+ years',
-        emoji: '🍃'
-    },
-    postgres: {
-        title: 'PostgreSQL',
-        description: 'Relational database design, complex queries, and performance optimization.',
-        level: 'Advanced',
-        experience: '3+ years',
-        emoji: '🐘'
-    },
-    graphql: {
-        title: 'GraphQL',
-        description: 'GraphQL schema design, query optimization, and API development.',
-        level: 'Intermediate',
-        experience: '2+ years',
-        emoji: '⬅️➡️'
-    },
-    git: {
+    github: {
         title: 'Git & GitHub',
-        description: 'Version control, branching strategies, and collaborative workflows.',
-        level: 'Expert',
-        experience: '6+ years',
+        description: 'Version control, collaborative workflows, and branch management strategies.',
+        level: 'Advanced',
+        experience: 'Recent WSU Graduate',
         emoji: '🔀'
     },
-    docker: {
-        title: 'Docker',
-        description: 'Containerization, Docker Compose, and container orchestration.',
+    branding: {
+        title: 'Branding',
+        description: 'Brand identity development, visual design, and cohesive brand communication.',
         level: 'Advanced',
-        experience: '3+ years',
-        emoji: '🐳'
+        experience: 'Recent WSU Graduate',
+        emoji: '✨'
     },
-    'ci-cd': {
-        title: 'CI/CD',
-        description: 'GitHub Actions, Jenkins, and automated deployment pipelines.',
+    marketing: {
+        title: 'Marketing',
+        description: 'Digital marketing, social media strategy, and creative content development.',
         level: 'Advanced',
-        experience: '3+ years',
-        emoji: '🔄'
+        experience: 'Recent WSU Graduate',
+        emoji: '📢'
     },
-    aws: {
-        title: 'AWS',
-        description: 'Cloud services including EC2, S3, Lambda, and RDS.',
-        level: 'Intermediate',
-        experience: '2+ years',
-        emoji: '☁️'
+    consulting: {
+        title: 'Consulting',
+        description: 'Strategic business consulting, client communication, and project management.',
+        level: 'Advanced',
+        experience: 'Recent WSU Graduate',
+        emoji: '💼'
     }
 };
 
@@ -256,21 +214,32 @@ function initializeIntersectionObserver() {
         rootMargin: '0px 0px -100px 0px'
     };
     
+    const animatedElements = new Set();
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show', 'now');
+            if (entry.isIntersecting && !animatedElements.has(entry.target)) {
+                animatedElements.add(entry.target);
                 
-                // Trigger animations for nested elements
-                setTimeout(() => {
-                    entry.target.querySelectorAll('.appear, .todo').forEach(el => {
-                        el.classList.add('show', 'now');
+                // Use requestAnimationFrame to batch animations
+                requestAnimationFrame(() => {
+                    entry.target.classList.add('show', 'now');
+                    
+                    // Stagger animations for nested elements
+                    const appearElements = entry.target.querySelectorAll('.appear');
+                    const todoElements = entry.target.querySelectorAll('.todo');
+                    
+                    appearElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('show', 'now');
+                        }, index * 50);
                     });
-                }, 100);
-            } else {
-                entry.target.classList.remove('show', 'now');
-                entry.target.querySelectorAll('.appear, .todo').forEach(el => {
-                    el.classList.remove('show', 'now');
+                    
+                    todoElements.forEach((el, index) => {
+                        setTimeout(() => {
+                            el.classList.add('show', 'now');
+                        }, index * 60);
+                    });
                 });
             }
         });
